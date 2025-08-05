@@ -107,7 +107,7 @@ pipeline {
 //                     sleep(time: 60, unit: "SECONDS")
                     def maxRetries = 3
                     def retryDelay = 10
-                    echo "Beta is running on http://${SERVER_IP}:${GAMMA_PORT}/"
+                    echo "Gamma is running on http://${SERVER_IP}:${GAMMA_PORT}/"
                     sh "docker ps | grep ${APP_NAME}-gamma || exit 1"
                 }
              }
@@ -130,7 +130,7 @@ pipeline {
 //                     sleep(time: 60, unit: "SECONDS")
                     def maxRetries = 3
                     def retryDelay = 10
-                    echo "Beta is running on http://${SERVER_IP}:${PROD_PORT}/"
+                    echo "Prod is running on http://${SERVER_IP}:${PROD_PORT}/"
                     sh "docker ps | grep ${APP_NAME}-prod || exit 1"
                 }
             }

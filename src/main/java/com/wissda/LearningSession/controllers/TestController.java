@@ -18,7 +18,7 @@ import static com.wissda.LearningSession.constants.Routes.STUDENTS;
 @RequestMapping("/test")
 @CrossOrigin(origins="*")
 public class TestController {
-    @Value("spring.application.stage")
+    @Value("${spring.application.stage}")
     private String stage;
     @GetMapping("/")
     public ResponseEntity<Object> test() {
