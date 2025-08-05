@@ -81,7 +81,7 @@ pipeline {
                         -e SPRING_PROFILES_ACTIVE=beta \
                         ${DOCKER_IMAGE}:${DOCKER_TAG}
                     """
-                    sleep(time: 60, unit: "SECONDS")
+//                     sleep(time: 60, unit: "SECONDS")
                     def maxRetries = 3
                     def retryDelay = 10
                     echo "Beta is running on http://${SERVER_IP}:${BETA_PORT}/"
@@ -104,7 +104,7 @@ pipeline {
                         -e SPRING_PROFILES_ACTIVE=gamma \
                         ${DOCKER_IMAGE}:${DOCKER_TAG}
                     """
-                    sleep(time: 60, unit: "SECONDS")
+//                     sleep(time: 60, unit: "SECONDS")
                     def maxRetries = 3
                     def retryDelay = 10
                     echo "Beta is running on http://${SERVER_IP}:${GAMMA_PORT}/"
@@ -127,7 +127,7 @@ pipeline {
                         -e SPRING_PROFILES_ACTIVE=prod \
                         ${DOCKER_IMAGE}:${DOCKER_TAG}
                     """
-                    sleep(time: 60, unit: "SECONDS")
+//                     sleep(time: 60, unit: "SECONDS")
                     def maxRetries = 3
                     def retryDelay = 10
                     echo "Beta is running on http://${SERVER_IP}:${PROD_PORT}/"
