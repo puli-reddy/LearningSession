@@ -11,7 +11,7 @@ pipeline {
         PROD_PORT = 8083
         SERVER_IP = "localhost"
         LOG_DIR = "${WORKSPACE}/logs"
-        DOCKER_IMAGE = "thoufiqzeero/LearningSession"
+        DOCKER_IMAGE = "thoufiqzeero/learning_session"
         DOCKER_TAG = "${env.BUILD_NUMBER}"
     }
     stages {
