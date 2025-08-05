@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'Maven-3.9.11'
-        jdk 'JDK 21'
+        jdk 'JDK 21 '
     }
     environment {
         APP_NAME = "LearningSession"
