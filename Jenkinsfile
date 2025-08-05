@@ -16,11 +16,13 @@ pipeline {
     }
     stages {
         stage("Verify Docker Access") {
-            try {
-                sh 'docker ps'
-                echo "Docker access verified"
-            } catch (Exception e) {
-                error "Docker not accessible. Ensure Jenkins user has Docker permissions (sudo usermod -aG docker jenkins)"
+            script {
+                try {
+                    sh 'docker ps'
+                    echo "Docker access verified"
+                } catch (Exception e) {
+                    error "Docker not accessible. Ensure Jenkins user has Docker permissions (sudo usermod -aG docker jenkins)"
+                }
             }
         }
         stage ("Checkout") {
