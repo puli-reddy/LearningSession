@@ -5,18 +5,19 @@ pipeline {
         jdk 'JDK 21 '
     }
     environment {
-        APP_NAME = "LearningSession"
+        REPO_URL = "https://github.com/puli-reddy/LearningSession.git"
+        APP_NAME = "PoornaLearningSession"
+        DOCKER_IMAGE = "poorna_learning_session"
         BETA_PORT = 8081
         GAMMA_PORT = 8082
         SERVER_IP = "localhost"
         LOG_DIR = "${WORKSPACE}/logs"
-        DOCKER_IMAGE = "poorna_learning_session"
         DOCKER_TAG = "${env.BUILD_NUMBER}"
     }
     stages {
         stage ("Checkout") {
             steps {
-                git url: 'https://github.com/puli-reddy/LearningSession.git', branch: 'main'
+                git url: ${REPO_URL}, branch: 'main'
                 sh 'chmod +x mvnw'
             }
         }
@@ -33,11 +34,9 @@ pipeline {
         stage ("Build Docker Image") {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        sh """
-                            docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
-                        """
-                    }
+                    sh """
+                        docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
+                    """
                 }
             }
         }
