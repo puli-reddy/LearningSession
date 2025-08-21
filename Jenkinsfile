@@ -20,7 +20,7 @@ pipeline {
     stages {
         stage ("Checkout") {
             steps {
-                scripts {
+                script {
                     dir('source') {
                         git url: "${REPO_URL}", branch: 'main'
                     }
