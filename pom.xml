@@ -93,7 +93,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>LearningSession-${profileActive}</finalName>
+		<finalName>LearningSession</finalName>
 	</build>
 
 	<profiles>
