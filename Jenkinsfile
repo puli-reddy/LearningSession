@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage ("Checkout") {
             steps {
-                git url: ${REPO_URL}, branch: 'main'
+                git url: "${REPO_URL}", branch: 'main'
                 sh 'chmod +x mvnw'
             }
         }
