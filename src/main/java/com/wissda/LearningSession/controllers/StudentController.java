@@ -37,8 +37,15 @@ public class StudentController {
 
     @PostMapping(BY_ID)
     public ResponseEntity<Object> getStudentById(@RequestBody final StudentDTO studentDTO) {
+        log.info("StudentId : " + studentDTO.getStudentId());
         StudentDAO response = studentComponent.getStudentById(studentDTO);
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<Object> deleteStudentById(@RequestBody final StudentDTO studentDTO) {
+        studentComponent.deleteStudentById(studentDTO);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping(BY_EMAIL)

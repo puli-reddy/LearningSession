@@ -32,6 +32,10 @@ public class StudentService {
         return response.orElse(null);
     }
 
+    public void deleteStudentById(final String studentId) {
+        studentRepo.deleteById(studentId);
+    }
+
     public List<StudentDAO> getStudents() {
         List<StudentDAO> response = studentRepo.findAll();
         return response;
