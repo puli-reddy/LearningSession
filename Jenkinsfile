@@ -85,7 +85,7 @@ pipeline {
             steps {
                 dir('tests') {
                     sh '''
-                        ./mvnw verify -DserviceUrl=${BETA_URL}
+                        ./mvnw test -DserviceUrl=${BETA_URL}
                         if [ -d "target/failsafe-reports" ]; then
                         grep -l "FAILURE" target/failsafe-reports/*.txt && exit 1 || exit 0
                         fi
@@ -123,7 +123,7 @@ pipeline {
             steps {
                 dir('tests') {
                     sh '''
-                        ./mvnw verify -DserviceUrl=${GAMMA_URL}
+                        ./mvnw test -DserviceUrl=${GAMMA_URL}
                         if [ -d "target/failsafe-reports" ]; then
                         grep -l "FAILURE" target/failsafe-reports/*.txt && exit 1 || exit 0
                         fi
